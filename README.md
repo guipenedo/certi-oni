@@ -17,6 +17,7 @@
 
     ```
     pip install -r requirements.txt
+    sudo apt-get install texlive-latex-base texlive-latex-extra
     ```
 
 4. Alterar o ficheiro template.tex
