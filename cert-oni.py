@@ -1,3 +1,4 @@
+ # coding=utf-8
 '''
     File name: cert-oni.py
     Author: Guilherme Penedo (@guipenedo)
@@ -22,9 +23,11 @@ extra = {}
 entry = []
 with open(PASSWD_FILE, "r") as f:
     for line in f:
-        if line.strip() is '----------------------':
+        if '---' in line:
             extra[entry[1] + ' ' + entry[3].replace('_', ' ')] = entry
             entry = []
+        else:
+            entry.append(line.strip())
     f.close()
 
 vals = []
@@ -49,8 +52,8 @@ for tr in trs:
     while key not in extra:
         key = input("ERRO: key \"" + key + "\" não encontrada! Nova chave: ").strip()
     entry = extra[key]
-    new.append(extra[0])
-    new.append(extra[2])
+    new.append(entry[0])
+    new.append(entry[2])
     vals.append(new)
 
 # load certificate template
